@@ -5,18 +5,15 @@ import { randstr } from "../utils/random";
 import { Database } from "./Database";
 import { InsertRes } from "./responses";
 
-export class JsonDB implements Database {
+export class MemoryDB implements Database {
     
-    private filename: string;
-
     private data: {
         users: User[],
         sessions: Session[],
         resources: Resource[],
     };
 
-    constructor (filename: string) {
-        this.filename = filename;
+    constructor () {
         this.data = {
             users: [],
             sessions: [],
